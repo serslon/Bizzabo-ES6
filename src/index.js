@@ -1,7 +1,16 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
-const sayHello = () => {
-    console.log("Allo! We are all set!");
-    console.log("Arrow functions are working");
-};
+import { Reducer, Middleware } from './redux'
+import App from './app/app'
 
-sayHello();
+let store = createStore(Reducer, Middleware)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+);
